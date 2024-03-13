@@ -1,7 +1,7 @@
 
 # Employee Management API
 
-This is a RESTful API for managing employees in a company.
+This is simple Api which has two models employees and its departments. 
 
 ## Setup
 
