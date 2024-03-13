@@ -1,24 +1,91 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Employee Management API
 
-Things you may want to cover:
+This is a RESTful API for managing employees in a company.
 
-* Ruby version
+## Setup
 
-* System dependencies
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/employee-management-api.git
+   ```
 
-* Configuration
+2. Navigate to the project directory:
+   ```bash
+   cd ROR_Employee_Management_Api
+   ```
 
-* Database creation
+3. Install dependencies:
+   ```bash
+   bundle install
+   ```
 
-* Database initialization
+4. Create a `.env` file in the root directory and add the following configuration:
 
-* How to run the test suite
+## Environment Variables
+- `DATABASE_NAME`: Name of the database.
+- `DATABASE_USERNAME`: Database username.
+- `DATABASE_PASSWORD`: Database password.
+- `DATABASE_HOST`: Database host.
+- `DATABASE_PORT`: Database port.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Database Configuration
 
-* Deployment instructions
+This project uses a database for storing employee data. It is running on Postgresql locally.You can configure the .env as above.
 
-* ...
+## Basic CRUD Operations
+
+### Create an Employee
+
+```bash
+curl -X POST http://localhost:3000/employees \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "department": "Engineering",
+  "position": "Software Engineer"
+}'
+```
+
+### Read All Employees
+
+```bash
+curl http://localhost:3000/employees
+```
+
+### Read a Single Employee
+
+```bash
+curl http://localhost:3000/employees/<employee_id>
+```
+Replace `<employee_id>` with the ID of the employee you want to retrieve.
+
+### Update an Employee
+
+```bash
+curl -X PUT http://localhost:3000/employees/<employee_id> \
+-H "Content-Type: application/json" \
+-d '{
+  "name": "Updated Name",
+  "email": "updated.email@example.com",
+  "department": "Updated Department",
+  "position": "Updated Position"
+}'
+```
+Replace `<employee_id>` with the ID of the employee you want to update.
+
+### Delete an Employee
+
+```bash
+curl -X DELETE http://localhost:3000/employees/<employee_id>
+```
+Replace `<employee_id>` with the ID of the employee you want to delete.
+
+## Running the Server
+
+Start the server using the following command:
+
+```bash
+rails s
+```
