@@ -35,6 +35,17 @@ This project uses a database for storing employee data. It is running on Postgre
 
 ## Basic CRUD Operations
 
+### Create Department
+```bash
+curl -X POST \
+  http://127.0.0.1:3000/departments \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "department": {
+        "name": "computer"
+    }
+}'
+```
 ### Create an Employee
 
 ```bash
@@ -42,8 +53,10 @@ curl -X POST http://localhost:3000/employees \
 -H "Content-Type: application/json" \
 -d '{
   "name": "John Doe",
+  "age": 21,
+  "salary":2000,
   "email": "john.doe@example.com",
-  "department": "Engineering",
+  "department_id": 1,
   "position": "Software Engineer"
 }'
 ```
@@ -68,6 +81,8 @@ curl -X PUT http://localhost:3000/employees/<employee_id> \
 -H "Content-Type: application/json" \
 -d '{
   "name": "Updated Name",
+  "age": "Updated Age",
+  "salary": "Updated Salary",
   "email": "updated.email@example.com",
   "department": "Updated Department",
   "position": "Updated Position"
